@@ -3,6 +3,7 @@ export interface itemInterface {
   link: string;
 }
 
-export interface headerInterrface {
+export interface headerInterface {
   dataBtn: itemInterface[];
+  setLink: (link:string) => void;
 }

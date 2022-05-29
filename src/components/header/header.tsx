@@ -1,13 +1,13 @@
 import { FC } from "react";
 import Btn from "./btn";
 import styles from "./header.module.scss";
-import { headerInterrface } from "./heder.interface";
+import { headerInterface } from "./heder.interface";
 
-const Header: FC<headerInterrface> = ({ dataBtn }): JSX.Element => {
+const Header: FC<headerInterface> = ({ dataBtn, setLink }): JSX.Element => {
   return (
     <div className={styles.header}>
       {dataBtn.map(({ title, link }, id) => (
-        <Btn title={title} key={id} link={link} />
+        <Btn title={title} key={id} link={link} setLink={setLink}/>
       ))}
     </div>
   );

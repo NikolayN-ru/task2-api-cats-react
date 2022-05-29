@@ -8,86 +8,6 @@ import axios from "axios";
 
 import { appStateInterface } from "./app.interface";
 
-//data-testing no-production-no!
-const dataCats: appStateInterface[] = [
-  {
-    breeds: [],
-    id: "2d8",
-    url: "https://cdn2.thecatapi.com/images/2d8.jpg",
-    width: 3264,
-    height: 2448
-  },
-  {
-    breeds: [],
-    id: "2ds",
-    url: "https://cdn2.thecatapi.com/images/2ds.jpg",
-    width: 485,
-    height: 402
-  },
-  {
-    breeds: [],
-    id: "5pd",
-    url: "https://cdn2.thecatapi.com/images/5pd.jpg",
-    width: 400,
-    height: 600
-  },
-  {
-    breeds: [],
-    categories: [
-      {
-        id: 14,
-        name: "sinks"
-      }
-    ],
-    id: "8o4",
-    url: "https://cdn2.thecatapi.com/images/8o4.jpg",
-    width: 960,
-    height: 720
-  },
-  {
-    breeds: [],
-    id: "aa9",
-    url: "https://cdn2.thecatapi.com/images/aa9.jpg",
-    width: 500,
-    height: 375
-  },
-  {
-    breeds: [],
-    id: "av2",
-    url: "https://cdn2.thecatapi.com/images/av2.jpg",
-    width: 428,
-    height: 629
-  },
-  {
-    breeds: [],
-    id: "dc1",
-    url: "https://cdn2.thecatapi.com/images/dc1.gif",
-    width: 300,
-    height: 225
-  },
-  {
-    breeds: [],
-    id: "TTs20fiXX",
-    url: "https://cdn2.thecatapi.com/images/TTs20fiXX.jpg",
-    width: 1600,
-    height: 1200
-  },
-  {
-    breeds: [],
-    id: "h-phiJHDP",
-    url: "https://cdn2.thecatapi.com/images/h-phiJHDP.png",
-    width: 2232,
-    height: 1920
-  },
-  {
-    breeds: [],
-    id: "0UduF9VWT",
-    url: "https://cdn2.thecatapi.com/images/0UduF9VWT.jpg",
-    width: 1000,
-    height: 800
-  }
-];
-
 const dataBtn = [
   { title: "Все котики", link: "/" },
   { title: "Любимые котики", link: "/like" }
@@ -97,6 +17,12 @@ const App: FC = (): JSX.Element => {
   const [state, setState] = useState<appStateInterface[]>([]);
   const [likeState, setLikeState] = useState<string[]>([]);
   const [page, setPage] = useState<number>(1);
+  const [stateLink, setStateLink] = useState<string>('/');
+
+  const setLink =(link:string) => {
+    setStateLink(link)
+    console.log(stateLink, 'stateLink')
+  }
 
   useEffect(() => {
     // setState(dataCats);
@@ -150,8 +76,21 @@ const App: FC = (): JSX.Element => {
   return (
     <div className="App">
       <Router>
-        <Header dataBtn={dataBtn} />
-        <Routes>
+        <Header dataBtn={dataBtn} setLink={setLink}/>
+
+
+      {stateLink === '/' ?  <AllCats
+                data={state}
+                toolgeCats={toolgeCats}
+                load={true}
+                incPage={incPage}
+              /> : null}
+
+
+      {stateLink === '/like' ?   <LikeCats data={likeState} toolgeCats={toolgeCats} load={false} /> : null}
+
+        
+        {/* <Routes>
           <Route
             path="/"
             element={
@@ -169,7 +108,7 @@ const App: FC = (): JSX.Element => {
               <LikeCats data={likeState} toolgeCats={toolgeCats} load={false} />
             }
           />
-        </Routes>
+        </Routes> */}
       </Router>
     </div>
   );
