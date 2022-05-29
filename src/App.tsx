@@ -75,7 +75,7 @@ const App: FC = (): JSX.Element => {
 
   return (
     <div className="App">
-      <Router>
+      {/* <Router> */}
         <Header dataBtn={dataBtn} setLink={setLink}/>
 
 
@@ -109,7 +109,7 @@ const App: FC = (): JSX.Element => {
             }
           />
         </Routes> */}
-      </Router>
+      {/* </Router> */}
     </div>
   );
 };
