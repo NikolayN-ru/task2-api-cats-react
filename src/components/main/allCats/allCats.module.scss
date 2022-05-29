@@ -1,0 +1,25 @@
+.allCats {
+  padding-top: 32px;
+  padding-left: 62px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 16px;
+  column-gap: 20px;
+
+  p {
+    width: 100%;
+    text-align: center;
+  }
+}
+.loaded {
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 20px;
+  margin: 20px;
+}
+
+.loaded:hover {
+  // opacity: 0.7;
+  color: rgb(176, 29, 198);
+}

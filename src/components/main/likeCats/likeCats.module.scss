@@ -1,0 +1,10 @@
+.likeCats {
+  display: flex;
+  flex-wrap: wrap;
+
+  p {
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+  }
+}

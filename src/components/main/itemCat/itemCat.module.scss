@@ -1,0 +1,40 @@
+.itemCat {
+  width: 256px;
+  height: 256px;
+  position: relative;
+  padding: 15px;
+  box-sizing: border-box;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .like {
+    position: absolute;
+    bottom: 24px;
+    right: 19px;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.itemCat:hover {
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
+  .like {
+    opacity: 1;
+  }
+}
+.likeBig:hover {
+  opacity: 0;
+}
+.likeFull {
+  opacity: 0;
+  position: absolute;
+  left: 0px;
+}
+.likeFull:hover {
+  opacity: 1;
+}
+
+.likeTouch {
+  opacity: 1;
+}
